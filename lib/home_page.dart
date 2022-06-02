@@ -7,9 +7,18 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Pet Health"),
+    return DefaultTabController(
+        length: 2,
+        child: Scaffold(
+        appBar: AppBar(
+          title: const Text("Pet Health"),
+          bottom: const TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.favorite)),
+                Tab(icon: Icon(Icons.insert_chart_outlined_rounded)),
+              ],
+          ),
+        ),
       ),
     );
   }
