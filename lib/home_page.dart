@@ -7,19 +7,36 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-        length: 2,
-        child: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: const Text("Pet Health"),
-          bottom: const TabBar(
-              tabs: [
-                Tab(icon: Icon(Icons.favorite)),
-                Tab(icon: Icon(Icons.insert_chart_outlined_rounded)),
-              ],
-          ),
         ),
-      ),
-    );
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.favorite),
+              label: 'Monitor',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.insert_chart_outlined_rounded),
+              label: 'History',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.pets),
+              label: 'Pets',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.menu),
+              label: 'More',
+            ),
+          ],
+          selectedItemColor: Colors.cyan,
+        ),
+      );
   }
 }
