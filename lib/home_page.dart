@@ -31,6 +31,11 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text("Pet Health"),
       ),
+      body: const Image(
+          image: AssetImage('assets/JudePic.png'),
+          fit: BoxFit.cover,
+          alignment: Alignment.center,
+          ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: navItems,
