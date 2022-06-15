@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pet_healh_monitor/pages/pets_page.dart';
+import 'package:pet_healh_monitor/pages/history_page.dart';
+import 'package:pet_healh_monitor/pages/monitor_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -12,11 +15,18 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
   final List<BottomNavigationBarItem> navItems = const [
-    BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home',),
+    //BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home',),
     BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Monitor',),
     BottomNavigationBarItem(icon: Icon(Icons.insert_chart_outlined_rounded), label: 'History',),
     BottomNavigationBarItem(icon: Icon(Icons.pets), label: 'Pets',),
     //BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'More',),
+  ];
+
+  final pages = [
+    //HomePage(),
+    const MonitorPage(),
+    const HistoryPage(),
+    const PetsPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -31,11 +41,10 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text("Pet Health"),
       ),
-      body: const Image(
-          image: AssetImage('assets/JudePic.png'),
-          fit: BoxFit.cover,
-          alignment: Alignment.center,
-          ),
+      body: IndexedStack(
+          index: _selectedIndex,
+          children: pages,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: navItems,
@@ -45,3 +54,4 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
