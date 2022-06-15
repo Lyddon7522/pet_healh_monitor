@@ -6,7 +6,6 @@ void main() {
   group('Home Page Layout Tests', () {
 
     Future<void> _verifyLayoutElements(WidgetTester tester) async {
-      print('_verifyLayoutElements');
       expect(find.byIcon(Icons.home), findsOneWidget);
       expect(find.byIcon(Icons.favorite), findsOneWidget);
       expect(find.byIcon(Icons.insert_chart_outlined_rounded), findsOneWidget);
